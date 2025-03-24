@@ -1,0 +1,47 @@
+{% extends "iplapp/home.html" %}
+{% load static %}
+{% block title %}Update Player{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/home.css' %}">
+<div class="container mt-4">
+    <h1 class="text-center" style="color: black; font-weight: bold;">Update Player - {{ ipldb.Jno }}</h1>
+    
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card shadow-lg p-4 card-3d">
+                <form action="{% url 'update_player' ipldb.Jno %}" method="POST">
+                    {% csrf_token %}
+                    
+                    <div class="mb-3">
+                        <label for="Jerseyno" class="form-label">Jersey No:</label>
+                        <input type="number" name="Jno" class="form-control input-3d" value="{{ ipldb.Jno }}" disabled>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="PlayerName" class="form-label">Player Name:</label>
+                        <input type="text" name="pn" class="form-control input-3d" value="{{ ipldb.pname }}">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="Runs" class="form-label">Runs:</label>
+                        <input type="number" name="rn" class="form-control input-3d" value="{{ ipldb.runs }}">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="Wickets" class="form-label">Wickets:</label>
+                        <input type="number" name="wn" class="form-control input-3d" value="{{ ipldb.wickets }}">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="TeamName" class="form-label">Team Name:</label>
+                        <input type="text" name="tn" class="form-control input-3d" value="{{ ipldb.tname }}">
+                    </div>
+
+                    <button type="submit" class="btn btn-success btn-3d w-100">Update Player</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

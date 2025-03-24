@@ -1,0 +1,68 @@
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}IPL Player{% endblock %}</title>
+
+    <!-- Bootstrap CSS (Only One) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+</head>
+
+<body>
+    <!-- Navbar Section -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+
+        <div class="container-fluid">
+            <a class="navbar-brand d-flex align-items-Rights" href="/home/">
+                <img src="{% static 'images/logo-photo.jpg' %}" alt="IPL Logo" class="logo" width="50" height="50">
+                <span class="ml-2">IPL Players</span>
+            </a>
+    
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+    
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" href="/home/">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/create/">Create Player</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/display/">View Players</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+<!-- Team Logos -->
+<div class="logo-container">
+    <div class="team-logo"><img src="{% static 'images/MIoutline..avif' %}" alt="Mumbai Indians"></div>
+    <div class="team-logo"><img src="{% static 'images/CSKoutline.avif' %}" alt="Chennai Super Kings"></div>
+    <div class="team-logo"><img src="{% static 'images/RCBoutline.avif' %}" alt="RCB"></div>
+    <div class="team-logo"><img src="{% static 'images/KKRoutline.avif' %}" alt="KKR"></div>
+    <div class="team-logo"><img src="{% static 'images/GToutline.avif' %}" alt="Gujarat Titans"></div>
+    <div class="team-logo"><img src="{% static 'images/SRHoutline.avif' %}" alt="SRH"></div>
+</div>
+
+<!-- Main Content -->
+<div class="container mt-4">
+    {% block content %}
+    {% endblock %}
+</div>
+<!-- Call-to-Action Buttons -->
+<div class="cta-buttons">
+    <a href="/create/" class="btn create-btn">Create Player</a>
+    <a href="/display/" class="btn view-btn">View Players</a>
+</div>
+
+<!-- Footer -->
+<footer class="footer">
+    <p>&copy; 2025 IPL Player Database. All Rights Reserved.</p>
+</footer>
+
+ <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="{% static 'js/home.js' %}"></script>
+</body>
+</html>

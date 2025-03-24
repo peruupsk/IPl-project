@@ -1,0 +1,39 @@
+
+   {% extends "iplapp/Home.html" %}
+    {% block title %}Display  - IPL Player {% endblock  %}
+   
+
+    {% block content %}
+    <div style="text-align: center;">
+    <h1 style="color: blue;"> Display information</h1>
+    <table class="table table-sm table-light">
+        <thead>
+          <tr>
+            <th scope="col">Jersey_no</th>
+            <th scope="col">Player name</th>
+            <th scope="col">Runs</th>
+            <th scope="col">Wickets</th>
+            <th scope="col">Team name</th>
+            <th scope="col" > Action</th>
+          </tr>
+        </thead>
+        <tbody>
+            {% for p in ipldb %}
+            <tr>
+                <th scope="row">{{p.Jno}}</th>
+                <td>{{p.pname}}</td>
+                <td>{{p.runs}}</td>
+                <td>{{p.wickets}}</td>
+                <td>{{p.tname}}</td>
+                <td><a href="/update/{{p.Jno}}/"class="btn btn-warning" >update</a> 
+                  <a href="/delete/{{p.Jno}}/" class="btn btn-denge"> delete </a>
+                </td>
+             </tr>
+
+            {% endfor %}
+         
+        </tbody>
+      </table>
+ 
+   </div>
+   {% endblock %}

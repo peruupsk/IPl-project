@@ -1,0 +1,682 @@
+/* Apply the background image to the whole page */
+body {
+    
+    background-size: cover;
+    background-color: rgb(78, 73, 88);
+    color: white;
+    text-align: center;
+    font-family: "Poppins", Arial, sans-serif;
+    margin: 0;background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(151, 5, 5, 0.7)), 
+                url("{% static '/images/background.jpg.jpg' %}") no-repeat center center fixed;
+    padding-top: 70px ;
+    height: 100vh; /* Adjusted for better responsiveness */
+    display:flex ;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    animation: fadeIn 2s ease-in-out;
+}
+
+/* 🔹 Navbar Styles */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background-color: black; /* Ensure visibility */
+    padding: 10px 20px;
+}
+
+/* 🔹 Navbar Brand Logo & Text */
+.navbar-brand {
+    font-size: 24px;
+    font-weight: bold;
+    color: white !important;
+    display: flex;
+    align-items: center;
+    text-transform: uppercase;
+}
+
+.navbar-brand img {
+    width: 50px;
+    height: auto;
+    margin-right: 10px;
+}
+
+/* 🔹 Navbar Links */
+.navbar-nav .nav-link {
+    font-size: 18px;
+    color: white !important;
+    transition: 0.3s;
+    padding: 10px 15px;
+    text-transform: uppercase;
+}
+
+.navbar-nav .nav-link:hover {
+    color: #ff6b6b !important;
+    transform: scale(1.1);
+}
+
+
+/* 🔹 Smooth fade-in effect */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* 🔹 Glassmorphism effect for content boxes */
+.glass-container {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    width: 80%;
+    max-width: 600px;
+}
+
+/* 🔹 Button Styling */
+.btn {
+    background-color: #ff6b6b;
+    border: none;
+    padding: 12px 25px;
+    color: white;
+    border-radius: 30px;
+    text-decoration: none;
+    font-size: 18px;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background-color: #ff4b4b;
+    transform: scale(1.1);
+}
+
+/* Optional: Add an overlay effect for better readability */
+/* body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    
+} */
+
+/* Section Headers */
+h2 {
+    font-size: 2rem;
+    margin: 30px 0;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Player Categories */
+.category-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 30px;
+    flex-wrap: wrap; /* Make sure the categories stack properly on smaller screens */
+}
+
+.category-card {
+    width: 200px;
+    height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(255, 255, 255, 0.2);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s;
+}
+
+.category-card:hover {
+    transform: scale(1.1);
+    box-shadow: 0 8px 20px rgba(255, 255, 255, 0.4);
+}
+
+
+
+/* IPL Stats Section */
+.ipl-status {
+    background: rgba(26, 19, 19, 0.425);
+    padding: 30px;
+    border-radius: 10px;
+    margin: 30px auto;
+    width: 80%;
+}
+
+.stats-grid {
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.stat-card {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 15px;
+    border-radius: 10px;
+    width: 250px;
+    box-shadow: 0 5px 10px rgba(255, 255, 255, 0.3);
+    transition: transform 0.3s;
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+}
+
+/* CTA Buttons */
+.cta-buttons {
+    margin: 30px 0;
+}
+
+.create-btn {
+    background: #ff9f43;
+    color: black;
+}
+
+.view-btn {
+    background: #5a6372;
+    color: white;
+}
+
+/* Buttons */
+.btn {
+    padding: 12px 20px;
+    font-size: 1rem;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    margin: 10px;
+    text-decoration: none;
+    transition: all 0.3s ease-in-out;
+}
+
+.btn:hover {
+    transform: scale(1.1);
+}
+
+/* Container for logos */
+.logo-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 50px 10px;
+}
+
+/* Style for each logo */
+.team-logo {
+    width: 150px;
+    height: 150px;
+    perspective: 1000px;
+    cursor: pointer;
+    transition: transform 0.4s ease-in-out;
+}
+
+/* 3D hover effect */
+.team-logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 10px;
+    transition: transform 0.4s ease-in-out, filter 0.4s ease-in-out, box-shadow 0.4s;
+}
+
+/* Different color effects for each team */
+.team-logo:nth-child(1) img { filter: hue-rotate(200deg); }
+.team-logo:nth-child(2) img { filter: hue-rotate(40deg); }
+.team-logo:nth-child(3) img { filter: contrast(1.5); }
+.team-logo:nth-child(4) img { filter: brightness(1.3); }
+.team-logo:nth-child(5) img { filter: grayscale(0.5); }
+.team-logo:nth-child(6) img { filter: sepia(0.6); }
+
+/* 3D hover effect with shadow */
+.team-logo:hover img {
+    transform: rotateY(180deg);
+    box-shadow: 0px 10px 20px rgba(255, 255, 255, 0.8);
+    filter: brightness(1.5);
+}
+
+@media (max-width: 768px) {
+    .category-container {
+        flex-direction: column;
+    }
+
+    .category-card {
+        width: 100%;
+    }
+
+    .btn {
+        width: 100%;
+    }
+}
+/* Apply glassmorphism effect to the form card */
+.glass-container {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Form labels and input styling */
+.form-label {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #333;
+}
+
+/* Input fields for better focus effect */
+.form-control {
+    border-radius: 10px;
+    padding: 12px;
+    font-size: 1rem;
+    border: 2px solid #ccc;
+    transition: 0.3s ease-in-out;
+}
+
+.form-control:focus {
+    border-color: #ff6b6b;
+    box-shadow: 0 0 10px rgba(255, 107, 107, 0.5);
+}
+
+/* Button styling */
+.btn {
+    background-color: #ff6b6b;
+    border: none;
+    padding: 14px 0;
+    color: white;
+    font-weight: bold;
+    border-radius: 30px;
+    font-size: 1.1rem;
+    transition: 0.3s ease-in-out;
+}
+
+.btn:hover {
+    background-color: #ff4b4b;
+    transform: scale(1.05);
+}
+
+/* Text styling */
+h1 {
+    font-size: 2rem;
+    color: #333;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+/* Apply spacing and shadows to the container */
+.container {
+    margin-top: 50px;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    .card {
+        padding: 20px;
+    }
+    
+    .btn {
+        font-size: 1rem;
+        padding: 12px 0;
+    }
+}
+/* Table Row Hover Effect */
+.table-row {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.table-row:hover {
+    transform: scale(1.03) rotateY(5deg);
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Button 3D Hover Effect */
+.btn-3d {
+    position: relative;
+    display: inline-block;
+    padding: 10px 20px;
+    border-radius: 25px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.btn-3d:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Button Color Styling */
+.btn-warning {
+    background-color: #ff9f43;
+    color: white;
+    border: none;
+}
+
+.btn-warning:hover {
+    background-color: #e6893e;
+}
+
+.btn-danger {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+}
+
+.btn-danger:hover {
+    background-color: #c82333;
+}
+
+/* Styling the table and improving appearance */
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.table th, .table td {
+    text-align: center;
+    padding: 15px;
+    border-bottom: 1px solid #ddd;
+    font-size: 1rem;
+}
+
+/* Hover effect for table rows */
+.table-hover tbody tr:hover {
+    background-color: #f9f9f9;
+    cursor: pointer;
+}
+
+/* Heading Styling */
+h1 {
+    font-size: 2.5rem;
+    letter-spacing: 1px;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+/* Optional: Add subtle animation when the page loads */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+body {
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+/* 3D Card Effect */
+.card-3d {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    perspective: 1000px;
+}
+
+.card-3d:hover {
+    transform: scale(1.05) rotateY(5deg);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* Form Input 3D Hover Effect */
+.input-3d {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.input-3d:hover,
+.input-3d:focus {
+    transform: scale(1.02);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    border: 1px solid #007bff;
+}
+
+/* Button 3D Effect */
+.btn-3d {
+    position: relative;
+    display: inline-block;
+    padding: 12px 25px;
+    border-radius: 30px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.btn-3d:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+}
+
+.btn-success {
+    background-color: #28a745;
+    color: white;
+    border: none;
+}
+
+.btn-success:hover {
+    background-color: #218838;
+}
+
+/* Container and Form Styling */
+.container {
+    margin-top: 40px;
+}
+
+.card {
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 30px;
+}
+
+/* Form Label Styling */
+.form-label {
+    font-weight: bold;
+    color: #333;
+}
+
+/* Optional: Add subtle animation when the page loads */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+body {
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+/* Optional: Light background color for form */
+.card {
+    background: #f9f9f9;
+}
+
+@import url('https://fonts.googleapis.com/css?family=Raleway:400,700');
+
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;	
+	font-family: Raleway, sans-serif;
+}
+
+body {
+	background: linear-gradient(90deg, #C7C5F4, #776BCC);		
+}
+
+.container {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	min-height: 100vh;
+}
+
+.screen {		
+	background: linear-gradient(90deg, #5D54A4, #7C78B8);		
+	position: relative;	
+	height: 600px;
+	width: 360px;	
+	box-shadow: 0px 0px 24px #5C5696;
+}
+
+.screen__content {
+	z-index: 1;
+	position: relative;	
+	height: 100%;
+}
+
+.screen__background {		
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	z-index: 0;
+	-webkit-clip-path: inset(0 0 0 0);
+	clip-path: inset(0 0 0 0);	
+}
+
+.screen__background__shape {
+	transform: rotate(45deg);
+	position: absolute;
+}
+
+.screen__background__shape1 {
+	height: 520px;
+	width: 520px;
+	background: #FFF;	
+	top: -50px;
+	right: 120px;	
+	border-radius: 0 72px 0 0;
+}
+
+.screen__background__shape2 {
+	height: 220px;
+	width: 220px;
+	background: #6C63AC;	
+	top: -172px;
+	right: 0;	
+	border-radius: 32px;
+}
+
+.screen__background__shape3 {
+	height: 540px;
+	width: 190px;
+	background: linear-gradient(270deg, #5D54A4, #6A679E);
+	top: -24px;
+	right: 0;	
+	border-radius: 32px;
+}
+
+.screen__background__shape4 {
+	height: 400px;
+	width: 200px;
+	background: #7E7BB9;	
+	top: 420px;
+	right: 50px;	
+	border-radius: 60px;
+}
+
+.login {
+	width: 320px;
+	padding: 30px;
+	padding-top: 156px;
+}
+
+.login__field {
+	padding: 20px 0px;	
+	position: relative;	
+}
+
+.login__icon {
+	position: absolute;
+	top: 30px;
+	color: #7875B5;
+}
+
+.login__input {
+	border: none;
+	border-bottom: 2px solid #D1D1D4;
+	background: none;
+	padding: 10px;
+	padding-left: 24px;
+	font-weight: 700;
+	width: 75%;
+	transition: .2s;
+}
+
+.login__input:active,
+.login__input:focus,
+.login__input:hover {
+	outline: none;
+	border-bottom-color: #6A679E;
+}
+
+.login__submit {
+	background: #fff;
+	font-size: 14px;
+	margin-top: 30px;
+	padding: 16px 20px;
+	border-radius: 26px;
+	border: 1px solid #D4D3E8;
+	text-transform: uppercase;
+	font-weight: 700;
+	display: flex;
+	align-items: center;
+	width: 100%;
+	color: #4C489D;
+	box-shadow: 0px 2px 2px #5C5696;
+	cursor: pointer;
+	transition: .2s;
+}
+
+.login__submit:active,
+.login__submit:focus,
+.login__submit:hover {
+	border-color: #6A679E;
+	outline: none;
+}
+
+.button__icon {
+	font-size: 24px;
+	margin-left: auto;
+	color: #7875B5;
+}
+
+.social-login {	
+	position: absolute;
+	height: 140px;
+	width: 160px;
+	text-align: center;
+	bottom: 0px;
+	right: 0px;
+	color: #fff;
+}
+
+.social-icons {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.social-login__icon {
+	padding: 20px 10px;
+	color: #fff;
+	text-decoration: none;	
+	text-shadow: 0px 0px 8px #7875B5;
+}
+
+.social-login__icon:hover {
+	transform: scale(1.5);	
+}
